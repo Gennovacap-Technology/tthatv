@@ -1,6 +1,10 @@
 class Article < ApplicationRecord
   include Fae::BaseModelConcern
 
+  validates :title, presence: true
+  validates :slug, Fae.validation_helpers.slug
+
+
   def fae_display_field
     title
   end
